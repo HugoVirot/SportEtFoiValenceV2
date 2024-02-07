@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->foreignId('article_id')->onDelete('cascade');
             $table->foreignId('user_id')->nullable()->onDelete('set null');  
-            $table->foreignId('section_id')->nullable()->onDelete('cascade');              
+            $table->foreignId('section_id')->nullable()->onDelete('set null');              
             $table->timestamps();
         });
     }

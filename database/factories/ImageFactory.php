@@ -22,10 +22,10 @@ class ImageFactory extends Factory
     {
         return [
             'name' => fake()->word() . fake()->fileExtension,
-            'article_id' => Category::random(1)->first(),
-            'user_id' => User::random(1)->first(),
-            'article_id' => Article::random(1)->first(),
-            'section_id' => Section::random(1)->first()
+            'article_id' => rand(1, Article::count()),
+            'user_id' => rand(1, User::count()),
+            'article_id' => rand(1, Article::count()),
+            'section_id' => rand(1, Section::count())
         ];
     }
 }

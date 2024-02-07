@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('downloads', function (Blueprint $table) {
             $table->id();
             $table->string('file_name');
+            $table->string('description');
             $table->foreignId('user_id')->nullable()->onDelete('set null');        
+            $table->foreignId('category_id')->onDelete('cascade');        
             $table->timestamps();
         });
     }

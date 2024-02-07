@@ -20,9 +20,9 @@ class DownloadFactory extends Factory
     {
         return [
             'file_name' => fake()->word() . fake()->fileExtension,
-            'content' => fake()->paragraphs(3, true),
-            'category_id' => Category::random(1)->first(),
-            'user_id' => User::random(1)->first()
+            'description' => fake()->sentence(),
+            'category_id' => rand(1, Category::count()),
+            'user_id' => rand(1, User::count())
         ];
     }
 }

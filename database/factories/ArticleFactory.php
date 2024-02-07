@@ -21,8 +21,8 @@ class ArticleFactory extends Factory
         return [
             'title' => fake()->sentence(),
             'content' => fake()->paragraphs(3, true),
-            'category_id' => Category::random(1)->first(),
-            'user_id' => User::random(1)->first()
+            'category_id' => rand(1, Category::count()),
+            'user_id' => rand(1, User::count())
         ];
     }
 }
