@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     use HasFactory;
+
+    protected $with = ['images'];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

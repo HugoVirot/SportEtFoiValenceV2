@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    protected $with = ['author'];
+
+    public function author()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

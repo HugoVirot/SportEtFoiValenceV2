@@ -14,7 +14,18 @@ return new class extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
+            $table->string('leader', 50);
+            $table->char('leader_phone_number', 15)->nullable();
+            $table->char('leader_email', 50)->nullable();
+            $table->string('assistant', 50)->nullable();
+            $table->char('assistant_phone_number', 15)->nullable();
+            $table->enum('day', ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']);
+            $table->time('start_hour');
+            $table->time('end_hour');
+            $table->string('place');
+            $table->string('city', 50);
             $table->timestamps();
+            $table->text('description', 3000);
         });
     }
 
