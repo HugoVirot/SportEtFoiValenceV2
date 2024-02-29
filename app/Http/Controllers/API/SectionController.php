@@ -1,27 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use App\Models\Section;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreSectionRequest;
 use App\Http\Requests\UpdateSectionRequest;
 
-class SectionController extends Controller
+class SectionController extends BaseController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return $this->sendResponse(Section::all(), 'Sections récupérées avec succès');
     }
 
     /**
@@ -29,7 +22,8 @@ class SectionController extends Controller
      */
     public function store(StoreSectionRequest $request)
     {
-        //
+        $section = Section::create($request->all());
+        return $this->sendResponse($section, 'Section créée avec succès', 201);
     }
 
     /**
@@ -37,15 +31,7 @@ class SectionController extends Controller
      */
     public function show(Section $section)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Section $section)
-    {
-        //
+        return $this->sendResponse($section, 'Section récupérée avec succès');
     }
 
     /**
@@ -53,7 +39,8 @@ class SectionController extends Controller
      */
     public function update(UpdateSectionRequest $request, Section $section)
     {
-        //
+        $section->update($request->all());
+        return $this->sendResponse($section, 'Section modifiée avec succès');
     }
 
     /**
@@ -61,6 +48,7 @@ class SectionController extends Controller
      */
     public function destroy(Section $section)
     {
-        //
+        $section->delete();
+        return $this->sendResponse($section, "Section supprimée avec succès");
     }
 }

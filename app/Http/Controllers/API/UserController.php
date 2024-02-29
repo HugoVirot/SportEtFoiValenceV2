@@ -1,25 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
-    /**
-     * Display the specified resource.
+        /**
+     * Display a listing of the resource.
      */
-    public function show(User $user)
+    public function index()
     {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Store a newly created resource in storage.
      */
-    public function edit(User $user)
+    public function store(Request $request)
+    {
+        //
+    }
+    
+    /**
+     * Display the specified resource.
+     */
+    public function show(User $user)
     {
         //
     }
